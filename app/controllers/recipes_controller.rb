@@ -11,8 +11,12 @@ def new
 end
 
 def create
-    recipe = Recipe.create(recipe_params)
+    @recipe = Recipe.create(recipe_params)
+    if @recipe.save
     redirect_to recipe
+    else
+        render :new
+    end
 end
 
 def show
@@ -22,8 +26,12 @@ def edit
 end
 
 def update
-    @recipe.update(recipe_params)
+    if @recipe.update(recipe_params)
+    
     redirect_to @recipe
+    else
+        render :edit
+    end
 end
 
 def destroy
