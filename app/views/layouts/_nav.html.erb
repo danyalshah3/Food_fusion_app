@@ -1,3 +1,16 @@
+<nav>
+<% if logged_in? %>
+  <%= link_to "Logout", logout_path, method: "delete" %>
+  <%= link_to "Restaurants", restaurants_path %> :&nbsp &nbsp 
+ 
+<% else %>
+  <%= link_to "Login", login_path %> &nbsp | &nbsp 
+  <%= link_to "Sign Up!", new_user_path %> &nbsp | &nbsp 
+  <%= link_to "Sign In or Register with Google", "/auth/google_oauth2" %><br>
+<% end %>
+</nav>
+
+
 
 
 

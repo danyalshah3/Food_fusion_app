@@ -12,7 +12,10 @@ Recipe.create(name: "Satay chicken on skewers", image_url: "https://carlsbadcrav
 Recipe.create(name: "Lamb in black pepper sauce", image_url: "https://cdn.shopify.com/s/files/1/1731/2837/articles/Lamb-Chop-with-Black-Pepper-Sauce_800x800.jpg?v=1498536809", ingredients: "Lamb", description: "This dish is made with stir-fried lamb slices, usually sliced onions, and peppers, and is cooked in a black pepper sauce", minutes: 30)
 Recipe.create(name: "General Tso's chicken", image_url: "https://www.cookingclassy.com/wp-content/uploads/2014/01/general-tsos-chicken-edit+srgb.-500x500.jpg", ingredients: "Chicken", description: "Chicken cubes are coated in cornstarch and deep-fried, cooked with a sauce that includes hoisin sauce, dark soy sauce, and chili peppers.", minutes: 30)
 
+50.times do
+    Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.full_address)
 
+end
 
 
 

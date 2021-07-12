@@ -2,11 +2,15 @@ class User < ApplicationRecord
     validates :username, :email, uniqueness: true
     validates :username, :email, presence: true
     has_secure_password
-    validates :password, length: { in: 6..20 }
-
     
     validate :password_requirements_are_met
 
+   def self.find_or_create_from_google(user_info)
+        find_or_create_by(email: user_info[:email]) do |user|
+            user.username = user_info[:name]
+            user.password = SecureRandom.hex
+        end
+    end
 
     private 
 

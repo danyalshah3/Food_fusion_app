@@ -3,6 +3,7 @@ before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
 
 def index
+   
     @recipes = Recipe.all 
 end
 
@@ -11,6 +12,7 @@ def new
 end
 
 def create
+    
     @recipe = Recipe.create(recipe_params)
     if @recipe.save
     redirect_to recipe
@@ -26,6 +28,7 @@ def edit
 end
 
 def update
+   
     if @recipe.update(recipe_params)
     
     redirect_to @recipe
@@ -35,6 +38,7 @@ def update
 end
 
 def destroy
+    
     @recipe.destroy
     redirect_to recipes_path
 end
