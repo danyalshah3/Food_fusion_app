@@ -4,7 +4,7 @@ before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
 def index
    
-    @recipes = Recipe.all 
+    @recipes = Recipe.all.kind_of_food
 end
 
 def new
@@ -12,16 +12,17 @@ def new
 end
 
 def create
-    
+   
     @recipe = Recipe.create(recipe_params)
     if @recipe.save
-    redirect_to recipe
+    redirect_to recipes_path
     else
         render :new
     end
 end
 
 def show
+    @review = Review.find_or_initialize_by(user: current_user, recipe: @recipe)
 end
 
 def edit
@@ -51,7 +52,7 @@ end
 
 
 def recipe_params
-    params.require(:recipe).permit(:name, :ingredients, :description, :minutes)
+    params.require(:recipe).permit(:name, :ingredients, :description, :minutes, :image_url)
 end
 
 end

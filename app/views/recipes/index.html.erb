@@ -1,6 +1,14 @@
 <div class="wrapper">
 <h1>Welcome to the Recipes Library!</h1>
 
+
+
+<%= form_tag recipes_path, method: :get do %>
+  <%= label_tag :Recipe %>
+  <%= text_field_tag :Recipe %>
+  <%= submit_tag "Search a Recipe!" %>
+<% end %>
+
 <ul>
 <% @recipes.each do |recipe| %>
   <h2><li><%= link_to recipe.name, recipe %></li></h2>

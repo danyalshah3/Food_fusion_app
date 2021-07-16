@@ -11,5 +11,7 @@
     <%= f.password_field :password %>
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
+    <%= f.label :zipcode %>
+    <%= f.number_field :zipcode, in: 10001..99999 %>
     <%= f.submit "Sign Up!" %>
   <% end %>

@@ -1,7 +1,8 @@
 <nav>
 <% if logged_in? %>
-  <%= link_to "Logout", logout_path, method: "delete" %>
-  <%= link_to "Restaurants", restaurants_path %> :&nbsp &nbsp 
+  <%= link_to "Home Page", home_path %> | &nbsp
+  <%= link_to "Logout", logout_path, method: "delete" %> | &nbsp
+  <%= link_to "See All Restaurants", restaurants_path %> | &nbsp &nbsp 
  
 <% else %>
   <%= link_to "Login", login_path %> &nbsp | &nbsp 

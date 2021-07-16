@@ -1,7 +1,12 @@
 class User < ApplicationRecord
     validates :username, :email, uniqueness: true
     validates :username, :email, presence: true
+    validates :zipcode, numericality: {greater_than_or_equal_to: 10001, less_than_or_equal_to: 99999}
+   has_many :reviews
+   has_many :recipes, through: :reviews
     has_secure_password
+    
+    
     
     validate :password_requirements_are_met
 

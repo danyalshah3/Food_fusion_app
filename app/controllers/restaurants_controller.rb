@@ -2,7 +2,9 @@ class RestaurantsController < ApplicationController
 
 
     def index
-        @restaurants = Restaurant.all
+        @params = params.permit(:location)
+        @restaurants = Restaurant.get_by_location(params[:location] || current_user.zipcode)
+      
     end
 
     def show
