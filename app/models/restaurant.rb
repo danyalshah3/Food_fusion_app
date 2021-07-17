@@ -1,5 +1,5 @@
 class Restaurant < ApplicationRecord
-
+has_many :recipes
 
     def self.get_by_location(location)
         

@@ -2,7 +2,7 @@
 <div class="wrapper">
 <h1> Recipe Details </h1>
 <h3>Name: "<%= @recipe.name %>"</h2>
-<p><img src="<%= @recipe.image_url%>"alt="@recipe.name"</img></p>
+<img src="<%= @recipe.image_url%>"alt="<%=@recipe.name%>'s Image"/>
 <h3>Ingredients: "<%= @recipe.ingredients %>"</h3>
 <h3>Description: "<%= @recipe.description %>"</h3>
 <h3>Minutes_to_complete: "<%= @recipe.minutes %>"</h5><br>
@@ -12,7 +12,7 @@
 <div>
 <%= button_to "Edit #{@recipe.name}", edit_recipe_path(@recipe), method: :get%>
 <%= button_to "Remove #{@recipe.name}", recipe_path(@recipe), method: :delete %>
-<h3><%= link_to "All-Recipes", recipes_path %></h3> 
+<h3><%= link_to "Return to Recipes List", recipes_path %></h3> 
 </div>
 
 <%= form_for [@recipe, @review] do |f| %>
