@@ -1,4 +1,3 @@
-
 <div class="wrapper">
 <h1> Recipe Details </h1>
 <h3>Name: "<%= @recipe.name %>"</h2>
@@ -12,8 +11,8 @@
 <div>
 <%= button_to "Edit #{@recipe.name}", edit_recipe_path(@recipe), method: :get%>
 <%= button_to "Remove #{@recipe.name}", recipe_path(@recipe), method: :delete %>
-<h3><%= link_to "Return to Recipes List", recipes_path %></h3> 
 </div>
+
 
 <%= form_for [@recipe, @review] do |f| %>
     <%= render partial: "layouts/errors", locals: {record: @review} %><br>

@@ -4,7 +4,6 @@ class Recipe < ApplicationRecord
     validates :description, length: { minimum: 5 }
     has_many :reviews
     has_many :users, through: :reviews
-    belongs_to :restaurants
     validate :no_biryani
     scope :search, -> (name){ where("name LIKE ?", "%#{name}%")}
  

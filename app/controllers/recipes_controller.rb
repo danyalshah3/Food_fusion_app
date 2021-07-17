@@ -3,8 +3,8 @@ before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
 
     def index
-       
         @recipes = Recipe.search(params[:search])
+       
     end
 
     def new
@@ -29,7 +29,7 @@ before_action :set_recipe, only: [:show, :edit, :update, :destroy]
     end
 
     def update
-    
+        
         if @recipe.update(recipe_params)
         
            redirect_to @recipe
@@ -39,9 +39,9 @@ before_action :set_recipe, only: [:show, :edit, :update, :destroy]
     end
 
     def destroy
-        
         @recipe.destroy
         redirect_to recipes_path
+        
     end
 
     private

@@ -21,6 +21,7 @@ before_action :set_review, only: [:show, :update]
         else
           render :"recipes/show"
         end
+    end
       end
 
 
