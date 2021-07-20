@@ -9,6 +9,7 @@ class Recipe < ApplicationRecord
  
 
 
+   
 
     private
 

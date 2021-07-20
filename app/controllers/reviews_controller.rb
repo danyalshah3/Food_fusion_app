@@ -1,28 +1,29 @@
 class ReviewsController < ApplicationController
-before_action :set_recipe
-before_action :set_review, only: [:show, :update]
+  before_action :set_recipe
+  before_action :set_review, only: [:create, :update]
 
 
 
     def create
+    
       @review = current_user.reviews.build(review_params)
       @review.recipe = @recipe
-     if @review.save
+      if @review.save
         redirect_to @recipe
-      else
+       else
         render :"recipes/show"
      end
     end
 
 
-    def update
+      def update
         if @review.update(review_params)
           redirect_to @recipe
-        else
+         else
           render :"recipes/show"
         end
-    end
       end
+      
 
 
 
@@ -34,10 +35,11 @@ before_action :set_review, only: [:show, :update]
     end
 
     def set_review
-        @review = Review.find(params[:id])
+        @review = Review.find_by_id(params[:id])
     end
 
     def review_params
       params.require(:review).permit(:rating, :content)
     end
+
 end

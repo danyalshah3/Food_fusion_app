@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   
   
   
-  def login
+    def login
 
     end
   
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect_to '/'
-      else
+       else
         flash[:errors] = ["Invalid Username or Password!"]
         redirect_to login_path
       end
@@ -28,15 +28,15 @@ class SessionsController < ApplicationController
 
    
     def google_omniauth
-    user_info = request.env['omniauth.auth']["info"]
-    user = User.find_or_create_from_google(user_info)
+      user_info = request.env['omniauth.auth']["info"]
+      user = User.find_or_create_from_google(user_info)
 
-    if user
-      session[:user_id] = user.id
-      redirect_to user
-    else
-      flash[:errors] = user.errors.full_messages
-      redirect_to login_path
+      if user
+        session[:user_id] = user.id
+        redirect_to user
+       else
+        flash[:errors] = user.errors.full_messages
+        redirect_to login_path
+      end
     end
-  end
 end

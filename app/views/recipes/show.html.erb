@@ -1,19 +1,21 @@
 <div class="wrapper">
-<h1> Recipe Details </h1>
-<h3>Name: "<%= @recipe.name %>"</h2>
+<h2> Recipe Details </h2>
+<h3>Name: <%= @recipe.name %></h2>
 <img src="<%= @recipe.image_url%>"alt="<%=@recipe.name%>'s Image"/>
-<h3>Ingredients: "<%= @recipe.ingredients %>"</h3>
-<h3>Description: "<%= @recipe.description %>"</h3>
-<h3>Minutes_to_complete: "<%= @recipe.minutes %>"</h5><br>
+<h3>Ingredients: <%= @recipe.ingredients %></h3>
+<h3>Description: <%= @recipe.description %></h3>
+<h3>Minutes_to_complete: <%= @recipe.minutes %></h5><br>
 <br>
 </div>
 
 <div>
+
 <%= button_to "Edit #{@recipe.name}", edit_recipe_path(@recipe), method: :get%>
 <%= button_to "Remove #{@recipe.name}", recipe_path(@recipe), method: :delete %>
 </div>
 
 
+<div class="wrapper">
 <%= form_for [@recipe, @review] do |f| %>
     <%= render partial: "layouts/errors", locals: {record: @review} %><br>
     <%= f.label :rating %><br>
@@ -22,6 +24,7 @@
     <%= f.text_area :content %><br>
     <%= f.submit %><br>
   <% end %>
+  </div>
 
 <div>
   <%= render @recipe.reviews %>

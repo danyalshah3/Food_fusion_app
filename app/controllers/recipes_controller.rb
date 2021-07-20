@@ -12,13 +12,13 @@ before_action :set_recipe, only: [:show, :edit, :update, :destroy]
     end
 
     def create
-    
         @recipe = Recipe.create(recipe_params)
         if @recipe.save
            redirect_to recipes_path
         else
             render :new
         end
+    
     end
 
     def show
@@ -29,20 +29,18 @@ before_action :set_recipe, only: [:show, :edit, :update, :destroy]
     end
 
     def update
-        
-        if @recipe.update(recipe_params)
-        
-           redirect_to @recipe
-        else
+        if @recipe.update(recipe_params)  
+         redirect_to @recipe
+         else
             render :edit
         end
-    end
-
-    def destroy
-        @recipe.destroy
-        redirect_to recipes_path
         
     end
+
+        def destroy
+           @recipe.destroy
+           redirect_to recipes_path
+        end
 
     private
 

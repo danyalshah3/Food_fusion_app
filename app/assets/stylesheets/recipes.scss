@@ -17,18 +17,18 @@ input {
     box-shadow: 0 0 10px rgba(0,0,0,.3);
     margin: 16px auto;
     max-width: 960px;
-    padding: 2.25%; /* 18px / 800px */
-    width: 85%;
+    width: 95%;
   }
 
+
   img {
-  width: 100%;
+  width: 60%;
   height: 600px
 
   }
   body {
     
-    /*background-image: url(https://i.pinimg.com/736x/e6/7d/af/e67daf68a6e8f6d4a9283cb7d64b098c.jpg);*/
+    background-image: url(https://i.pinimg.com/736x/7c/b1/86/7cb18679659f791b1191bea97b74dfc0.jpg);
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -37,14 +37,16 @@ input {
   h1 {
     font-size: 36px;
     line-height: 54px;
+    color: white;
   }
 
   h2 {
-    border-bottom: 2px solid rgb(138, 99, 99);
+   
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
     box-shadow: 0 0 10px rgba(0,0,0,.3);
+    color: black;
   }
 
   h3 {
@@ -52,13 +54,23 @@ input {
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     font-size: 18px;
     line-height: 36px;
+    color: black;
   }
 
   .btn-primary {
     color: #fff;
     background-color: #ebecec;
     border-color: #f7f7f7; 
+    font-size: 15px;
 } 
+
+.btn-primary:hover {
+  background-color: white;
+}
+
+.search {
+  color: white;
+}
 
 /* button {
     padding-top: 0px;

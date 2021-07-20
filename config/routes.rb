@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
  
+  resources :users 
   resources :recipes do
   resources :reviews, only: [:create, :update]
 end
+
   
   
-resources :users
   get '/', to: 'welcome#home'
   get "/auth/google_oauth2/callback", to: "sessions#google_omniauth"
   get "/login", to: 'sessions#login', as: 'login'
