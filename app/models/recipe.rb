@@ -6,9 +6,37 @@ class Recipe < ApplicationRecord
     has_many :users, through: :reviews
     validate :no_biryani
     scope :search, -> (name){ where("name LIKE ?", "%#{name}%")}
- 
+    scope :alphabetical, -> {order(:name)}
+    scope :by_number_of_reviews, -> {
+    left_joins(:reviews)
+    .select("recipes.*, count(reviews.id) AS reviews_count")
+    .group("recipes.id")
+    .order("reviews_count DESC")
+   }
+     scope :average_review, -> {
+    left_joins(:reviews)
+    .select("recipes.*, avg(reviews.rating) AS average_review")
+    .group("recipes.id")
+    .order("average_review DESC")
+   }
+
+   def self.select_sort(sort)
+    case sort
+    when "alphabetical"
+      alphabetical
+    when "number_reviews"
+      by_number_of_reviews
+    when "average_review"
+      average_review
+    else
+      all
+    end
+  end
 
 
+    def average_review
+        reviews.average(:rating).to_i
+    end
    
 
     private

@@ -3,7 +3,7 @@ before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
 
     def index
-        @recipes = Recipe.search(params[:search])
+        @recipes = Recipe.search(params[:search]).select_sort(params[:sort])
        
     end
 
@@ -50,7 +50,7 @@ before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
 
     def recipe_params
-        params.require(:recipe).permit(:name, :ingredients, :description, :minutes, :image_url, :search)
+        params.require(:recipe).permit(:name, :ingredients, :description, :minutes, :image_url, :search, :sort)
     end
 
 end

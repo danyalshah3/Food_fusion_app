@@ -6,6 +6,11 @@
 <%= form_tag recipes_path, method: :get do %>
   <%= label_tag :Search %>
   <%= text_field_tag :search, params["search"], placeholder: "Pizza"%>
+  <%= select_tag :sort, raw("
+  <option value='alphabetical'>Alphabetical</option>
+  <option value='number_reviews'>Most Reviews</option>
+  <option value='average_review'>Average Review</option>
+") %>
   <%= submit_tag "Search a Recipe!" %>
   <% end %>
   </div><br>

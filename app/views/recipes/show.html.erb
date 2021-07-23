@@ -1,10 +1,11 @@
 <div class="wrapper">
 <h2> Recipe Details </h2>
-<h3>Name: <%= @recipe.name %></h2>
+<h3>Name: <%= @recipe.name %></h3>
 <img src="<%= @recipe.image_url%>"alt="<%=@recipe.name%>'s Image"/>
 <h3>Ingredients: <%= @recipe.ingredients %></h3>
 <h3>Description: <%= @recipe.description %></h3>
-<h3>Minutes_to_complete: <%= @recipe.minutes %></h5><br>
+<h3>Minutes_to_complete: <%= @recipe.minutes %></h5>
+<p>Average reviews: <%= thumbs(@recipe.average_review) %><br>
 <br>
 </div>
 
