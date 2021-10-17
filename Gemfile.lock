@@ -306,3 +306,5 @@ RUBY VERSION
 
 BUNDLED WITH
    2.2.24
+
+ --add-platform x86_64-linux
